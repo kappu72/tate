@@ -6,7 +6,7 @@ import UserItem from './UserItem';
 const getPayment = (payments = []) => payments.filter(p => p.default).pop();
 
 const UsersList = ({users = [], showDetail = () => {}}) => {
-    return (<ul>
+    return (<ul className="users-list">
             {users.map(({username, id, email, PaymentMethods}) => <UserItem
                 key={id}
                 username={username}

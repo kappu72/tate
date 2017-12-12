@@ -4,8 +4,10 @@ import ReactDOM from 'react-dom';
 import {compose} from 'recompose';
 import UsersList from './components/UsersList';
 import UserDetails from './components/UserDetails';
-import appEnhancer from './enhancers.js'
+import ListBar from './components/ListBar';
 
+import appEnhancer from './enhancers.js'
+require('./app.css');
 class App extends Component {
     static propTypes = {
         users: React.PropTypes.array,
@@ -25,13 +27,14 @@ class App extends Component {
     }
     renderList = () => {
         const {users, page, showDetail, getPage, onInputChange, search} = this.props;
-        return [(<input key="searchfield" type="text" placeholder="Search by email" value={search || ''} onChange={(evt) => onInputChange(evt.target.value)} />),
-                <UsersList key="userList" users={users} page={page} showDetail={showDetail}/>,
-                    (<span key="pagination">
-                    <button disabled={page === 1} onClick={() => getPage(page - 1)}>{"<"}</button>
-                    Page: {page}
-                    <button disabled={users.length < 50 } onClick={() => getPage(page + 1)}>{">"}</button>
-                    </span>)]
+        return [<ListBar
+                    users={users.length}
+                    key="listBar"
+                    page={page}
+                    getPage={getPage}
+                    onInputChange={onInputChange}
+                    search={search}/>,
+                <UsersList key="userList" users={users} page={page} showDetail={showDetail}/>]
     }
     renderUserDetail = () => {
         const {user, hideDetail} = this.props;
@@ -39,7 +42,7 @@ class App extends Component {
     }
     render() {
         const {user} = this.props;
-        return <div>
+        return <div className="app-container">
                 {user && this.renderUserDetail() || this.renderList()}
                 </div>
     }

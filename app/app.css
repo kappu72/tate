@@ -1,0 +1,91 @@
+.tate {
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right: 0px;
+    overflow: auto;
+    position:absolute;
+    font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
+}
+.app-container{
+    padding-top: 60px;
+    position:relative;
+    width: 80%;
+    min-width: 350px;
+    margin: auto;
+    overflow: auto;
+}
+.list-bar{
+    position: fixed;
+    height: 40px;
+    background: white;
+    width: inherit;
+    top: 0px;
+    padding-top: 20px;
+    min-width: 350px;
+
+}
+.list-bar input{
+    float: right;
+    font-size: 14px;
+}
+.list-bar .pages{
+    margin: 0px 10px;
+}
+.list-bar button{
+    cursor: pointer;
+    font-size:14px;
+}
+.list-bar button:disabled{
+    cursor: not-allowed;
+}
+h2 {
+  font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.users-list li{
+  font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  margin: 10px 0px;
+}
+
+.users-list li:last-child {
+  border: none;
+}
+
+.users-list li {
+  text-decoration: none;
+  color: #000;
+
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  display: block;
+}
+
+.users-list li:hover {
+  background: #f6f6f6;
+  cursor:pointer;
+}
+
+.users-list label{
+    display: block;
+    cursor:inherit;
+    font-weight: 400;
+}
+.users-list label label{
+    padding-left: 10px;
+}
+.users-list label span{
+    font-weight: 200;
+}

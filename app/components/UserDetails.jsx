@@ -3,15 +3,17 @@ import React from 'react';
 const UserDetails = ({user = {}, hideDetail = () => {}}) => {
 
     return (<div>
-                <button onClick={hideDetail}>List</button>
-                <ul>
-                    <li>{user.name} {user.surname}</li>
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    Payments:
-                    <li>{(user.PaymentMethods || []).map((p, idx)=> (<ul key={idx}>
-                        <li>{p.type} {p.currency}</li>
-                        </ul>))}
+                <div className="list-bar"><button onClick={hideDetail}>List</button></div>
+                <ul className="users-list" >
+                    <li>
+                        <label>Name surname <span>{user.name} {user.surname}</span></label>
+                        <label>Username <span>{user.username}</span></label>
+                        <label>Email <span>{user.email}</span></label>
+                        <label>Payments:
+                        {(user.PaymentMethods || []).map((p, idx)=> (
+                        <label key={idx}><span >{p.type} {p.currency}</span></label>
+                        ))}
+                        </label>
                     </li>
                 </ul>
             </div>);
